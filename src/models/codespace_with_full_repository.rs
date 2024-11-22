@@ -110,7 +110,7 @@ impl CodespaceWithFullRepository {
             owner: Box::new(owner),
             billable_owner: Box::new(billable_owner),
             repository: Box::new(repository),
-            machine: if let Some(x) = machine {Some(Box::new(x))} else {None},
+            machine: machine.map(Box::new),
             devcontainer_path: None,
             prebuild,
             created_at,

@@ -50,7 +50,7 @@ impl WebhooksProject {
             body,
             columns_url,
             created_at,
-            creator: if let Some(x) = creator {Some(Box::new(x))} else {None},
+            creator: creator.map(Box::new),
             html_url,
             id,
             name,

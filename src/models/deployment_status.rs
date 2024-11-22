@@ -60,7 +60,7 @@ impl DeploymentStatus {
             id,
             node_id,
             state,
-            creator: if let Some(x) = creator {Some(Box::new(x))} else {None},
+            creator: creator.map(Box::new),
             description,
             environment: None,
             target_url,

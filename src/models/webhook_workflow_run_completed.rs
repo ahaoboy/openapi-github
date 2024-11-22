@@ -40,7 +40,7 @@ impl WebhookWorkflowRunCompleted {
             organization: None,
             repository: Box::new(repository),
             sender: Box::new(sender),
-            workflow: if let Some(x) = workflow {Some(Box::new(x))} else {None},
+            workflow: workflow.map(Box::new),
             workflow_run: Box::new(workflow_run),
         }
     }

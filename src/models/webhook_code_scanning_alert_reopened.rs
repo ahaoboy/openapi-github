@@ -39,7 +39,7 @@ impl WebhookCodeScanningAlertReopened {
     pub fn new(action: Action, alert: Option<models::WebhookCodeScanningAlertReopenedAlert>, commit_oid: Option<String>, r#ref: Option<String>, repository: models::RepositoryWebhooks, sender: models::SimpleUserWebhooks) -> WebhookCodeScanningAlertReopened {
         WebhookCodeScanningAlertReopened {
             action,
-            alert: if let Some(x) = alert {Some(Box::new(x))} else {None},
+            alert: alert.map(Box::new),
             commit_oid,
             enterprise: None,
             installation: None,

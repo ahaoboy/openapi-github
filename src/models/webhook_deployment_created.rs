@@ -43,8 +43,8 @@ impl WebhookDeploymentCreated {
             organization: None,
             repository: Box::new(repository),
             sender: Box::new(sender),
-            workflow: if let Some(x) = workflow {Some(Box::new(x))} else {None},
-            workflow_run: if let Some(x) = workflow_run {Some(Box::new(x))} else {None},
+            workflow: workflow.map(Box::new),
+            workflow_run: workflow_run.map(Box::new),
         }
     }
 }

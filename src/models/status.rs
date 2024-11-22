@@ -52,7 +52,7 @@ impl Status {
             context,
             created_at,
             updated_at,
-            creator: if let Some(x) = creator {Some(Box::new(x))} else {None},
+            creator: creator.map(Box::new),
         }
     }
 }

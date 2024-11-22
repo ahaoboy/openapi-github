@@ -62,7 +62,7 @@ impl TeamDiscussion {
     /// A team discussion is a persistent record of a free-form conversation within a team.
     pub fn new(author: Option<models::NullableSimpleUser>, body: String, body_html: String, body_version: String, comments_count: i32, comments_url: String, created_at: String, last_edited_at: Option<String>, html_url: String, node_id: String, number: i32, pinned: bool, private: bool, team_url: String, title: String, updated_at: String, url: String) -> TeamDiscussion {
         TeamDiscussion {
-            author: if let Some(x) = author {Some(Box::new(x))} else {None},
+            author: author.map(Box::new),
             body,
             body_html,
             body_version,

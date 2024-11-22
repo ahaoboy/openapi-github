@@ -70,7 +70,7 @@ impl CheckSuite {
             before,
             after,
             pull_requests,
-            app: if let Some(x) = app {Some(Box::new(x))} else {None},
+            app: app.map(Box::new),
             repository: Box::new(repository),
             created_at,
             updated_at,

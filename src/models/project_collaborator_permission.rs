@@ -25,7 +25,7 @@ impl ProjectCollaboratorPermission {
     pub fn new(permission: String, user: Option<models::NullableSimpleUser>) -> ProjectCollaboratorPermission {
         ProjectCollaboratorPermission {
             permission,
-            user: if let Some(x) = user {Some(Box::new(x))} else {None},
+            user: user.map(Box::new),
         }
     }
 }

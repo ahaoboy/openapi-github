@@ -48,7 +48,7 @@ impl Activity {
             r#ref,
             timestamp,
             activity_type,
-            actor: if let Some(x) = actor {Some(Box::new(x))} else {None},
+            actor: actor.map(Box::new),
         }
     }
 }

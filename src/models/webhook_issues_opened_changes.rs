@@ -22,7 +22,7 @@ pub struct WebhookIssuesOpenedChanges {
 impl WebhookIssuesOpenedChanges {
     pub fn new(old_issue: Option<models::Issue6>, old_repository: models::Repository1) -> WebhookIssuesOpenedChanges {
         WebhookIssuesOpenedChanges {
-            old_issue: if let Some(x) = old_issue {Some(Box::new(x))} else {None},
+            old_issue: old_issue.map(Box::new),
             old_repository: Box::new(old_repository),
         }
     }

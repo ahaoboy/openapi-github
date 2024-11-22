@@ -67,7 +67,7 @@ impl WebhookPush {
             deleted,
             enterprise: None,
             forced,
-            head_commit: if let Some(x) = head_commit {Some(Box::new(x))} else {None},
+            head_commit: head_commit.map(Box::new),
             installation: None,
             organization: None,
             pusher: Box::new(pusher),

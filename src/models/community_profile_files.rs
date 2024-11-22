@@ -32,13 +32,13 @@ pub struct CommunityProfileFiles {
 impl CommunityProfileFiles {
     pub fn new(code_of_conduct: Option<models::NullableCodeOfConductSimple>, code_of_conduct_file: Option<models::NullableCommunityHealthFile>, license: Option<models::NullableLicenseSimple>, contributing: Option<models::NullableCommunityHealthFile>, readme: Option<models::NullableCommunityHealthFile>, issue_template: Option<models::NullableCommunityHealthFile>, pull_request_template: Option<models::NullableCommunityHealthFile>) -> CommunityProfileFiles {
         CommunityProfileFiles {
-            code_of_conduct: if let Some(x) = code_of_conduct {Some(Box::new(x))} else {None},
-            code_of_conduct_file: if let Some(x) = code_of_conduct_file {Some(Box::new(x))} else {None},
-            license: if let Some(x) = license {Some(Box::new(x))} else {None},
-            contributing: if let Some(x) = contributing {Some(Box::new(x))} else {None},
-            readme: if let Some(x) = readme {Some(Box::new(x))} else {None},
-            issue_template: if let Some(x) = issue_template {Some(Box::new(x))} else {None},
-            pull_request_template: if let Some(x) = pull_request_template {Some(Box::new(x))} else {None},
+            code_of_conduct: code_of_conduct.map(Box::new),
+            code_of_conduct_file: code_of_conduct_file.map(Box::new),
+            license: license.map(Box::new),
+            contributing: contributing.map(Box::new),
+            readme: readme.map(Box::new),
+            issue_template: issue_template.map(Box::new),
+            pull_request_template: pull_request_template.map(Box::new),
         }
     }
 }

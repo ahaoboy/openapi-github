@@ -74,7 +74,7 @@ impl BaseGist {
             updated_at,
             description,
             comments,
-            user: if let Some(x) = user {Some(Box::new(x))} else {None},
+            user: user.map(Box::new),
             comments_url,
             owner: None,
             truncated: None,

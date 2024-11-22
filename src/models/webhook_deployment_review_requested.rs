@@ -48,12 +48,12 @@ impl WebhookDeploymentReviewRequested {
             installation: None,
             organization: Box::new(organization),
             repository: Box::new(repository),
-            requestor: if let Some(x) = requestor {Some(Box::new(x))} else {None},
+            requestor: requestor.map(Box::new),
             reviewers,
             sender: Box::new(sender),
             since,
             workflow_job_run: Box::new(workflow_job_run),
-            workflow_run: if let Some(x) = workflow_run {Some(Box::new(x))} else {None},
+            workflow_run: workflow_run.map(Box::new),
         }
     }
 }

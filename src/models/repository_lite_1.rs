@@ -147,7 +147,7 @@ impl RepositoryLite1 {
             name,
             node_id,
             notifications_url,
-            owner: if let Some(x) = owner {Some(Box::new(x))} else {None},
+            owner: owner.map(Box::new),
             private,
             pulls_url,
             releases_url,

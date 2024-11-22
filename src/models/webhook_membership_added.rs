@@ -40,11 +40,11 @@ impl WebhookMembershipAdded {
             action,
             enterprise: None,
             installation: None,
-            member: if let Some(x) = member {Some(Box::new(x))} else {None},
+            member: member.map(Box::new),
             organization: Box::new(organization),
             repository: None,
             scope,
-            sender: if let Some(x) = sender {Some(Box::new(x))} else {None},
+            sender: sender.map(Box::new),
             team: Box::new(team),
         }
     }

@@ -71,7 +71,7 @@ impl DependabotAlert {
             created_at,
             updated_at,
             dismissed_at,
-            dismissed_by: if let Some(x) = dismissed_by {Some(Box::new(x))} else {None},
+            dismissed_by: dismissed_by.map(Box::new),
             dismissed_reason,
             dismissed_comment,
             fixed_at,

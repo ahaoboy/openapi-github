@@ -44,7 +44,7 @@ impl WebhookPullRequestReviewRequestedOneOf {
             organization: None,
             pull_request: Box::new(pull_request),
             repository: Box::new(repository),
-            requested_reviewer: if let Some(x) = requested_reviewer {Some(Box::new(x))} else {None},
+            requested_reviewer: requested_reviewer.map(Box::new),
             sender: Box::new(sender),
         }
     }

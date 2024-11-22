@@ -52,7 +52,7 @@ impl WebhookCodeScanningAlertFixedAlert {
         WebhookCodeScanningAlertFixedAlert {
             created_at,
             dismissed_at,
-            dismissed_by: if let Some(x) = dismissed_by {Some(Box::new(x))} else {None},
+            dismissed_by: dismissed_by.map(Box::new),
             dismissed_reason,
             html_url,
             instances_url: None,

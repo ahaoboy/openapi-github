@@ -1819,7 +1819,7 @@ pub async fn repos_slash_cancel_pages_deployment(configuration: &configuration::
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}/cancel", local_var_configuration.base_path, owner=crate::apis::urlencode(owner), repo=crate::apis::urlencode(repo), pages_deployment_id=pages_deployment_id.to_string());
+    let local_var_uri_str = format!("{}/repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}/cancel", local_var_configuration.base_path, owner=crate::apis::urlencode(owner), repo=crate::apis::urlencode(repo), pages_deployment_id=pages_deployment_id);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
@@ -4775,7 +4775,7 @@ pub async fn repos_slash_get_pages_deployment(configuration: &configuration::Con
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}", local_var_configuration.base_path, owner=crate::apis::urlencode(owner), repo=crate::apis::urlencode(repo), pages_deployment_id=pages_deployment_id.to_string());
+    let local_var_uri_str = format!("{}/repos/{owner}/{repo}/pages/deployments/{pages_deployment_id}", local_var_configuration.base_path, owner=crate::apis::urlencode(owner), repo=crate::apis::urlencode(repo), pages_deployment_id=pages_deployment_id);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {

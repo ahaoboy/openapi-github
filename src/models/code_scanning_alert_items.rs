@@ -65,7 +65,7 @@ impl CodeScanningAlertItems {
             instances_url,
             state,
             fixed_at: None,
-            dismissed_by: if let Some(x) = dismissed_by {Some(Box::new(x))} else {None},
+            dismissed_by: dismissed_by.map(Box::new),
             dismissed_at,
             dismissed_reason,
             dismissed_comment: None,

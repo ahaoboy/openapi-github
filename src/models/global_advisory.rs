@@ -97,7 +97,7 @@ impl GlobalAdvisory {
             nvd_published_at,
             withdrawn_at,
             vulnerabilities,
-            cvss: if let Some(x) = cvss {Some(Box::new(x))} else {None},
+            cvss: cvss.map(Box::new),
             cwes,
             credits,
         }

@@ -261,7 +261,7 @@ impl PullRequestBaseRepo {
             allow_merge_commit: None,
             allow_squash_merge: None,
             allow_rebase_merge: None,
-            license: if let Some(x) = license {Some(Box::new(x))} else {None},
+            license: license.map(Box::new),
             pushed_at,
             size,
             ssh_url,

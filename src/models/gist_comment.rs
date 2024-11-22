@@ -41,7 +41,7 @@ impl GistComment {
             node_id,
             url,
             body,
-            user: if let Some(x) = user {Some(Box::new(x))} else {None},
+            user: user.map(Box::new),
             created_at,
             updated_at,
             author_association,

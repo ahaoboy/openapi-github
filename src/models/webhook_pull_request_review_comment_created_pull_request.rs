@@ -93,7 +93,7 @@ impl WebhookPullRequestReviewCommentCreatedPullRequest {
         WebhookPullRequestReviewCommentCreatedPullRequest {
             _links: Box::new(_links),
             active_lock_reason,
-            assignee: if let Some(x) = assignee {Some(Box::new(x))} else {None},
+            assignee: assignee.map(Box::new),
             assignees,
             author_association,
             auto_merge: None,
@@ -113,7 +113,7 @@ impl WebhookPullRequestReviewCommentCreatedPullRequest {
             locked,
             merge_commit_sha,
             merged_at,
-            milestone: if let Some(x) = milestone {Some(Box::new(x))} else {None},
+            milestone: milestone.map(Box::new),
             node_id,
             number,
             patch_url,
@@ -126,7 +126,7 @@ impl WebhookPullRequestReviewCommentCreatedPullRequest {
             title,
             updated_at,
             url,
-            user: if let Some(x) = user {Some(Box::new(x))} else {None},
+            user: user.map(Box::new),
         }
     }
 }

@@ -93,10 +93,10 @@ impl SimplePullRequest2 {
         SimplePullRequest2 {
             _links: Box::new(_links),
             active_lock_reason,
-            assignee: if let Some(x) = assignee {Some(Box::new(x))} else {None},
+            assignee: assignee.map(Box::new),
             assignees,
             author_association,
-            auto_merge: if let Some(x) = auto_merge {Some(Box::new(x))} else {None},
+            auto_merge: auto_merge.map(Box::new),
             base: Box::new(base),
             body,
             closed_at,
@@ -113,7 +113,7 @@ impl SimplePullRequest2 {
             locked,
             merge_commit_sha,
             merged_at,
-            milestone: if let Some(x) = milestone {Some(Box::new(x))} else {None},
+            milestone: milestone.map(Box::new),
             node_id,
             number,
             patch_url,
@@ -126,7 +126,7 @@ impl SimplePullRequest2 {
             title,
             updated_at,
             url,
-            user: if let Some(x) = user {Some(Box::new(x))} else {None},
+            user: user.map(Box::new),
         }
     }
 }

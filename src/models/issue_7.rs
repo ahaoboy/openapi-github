@@ -101,7 +101,7 @@ impl Issue7 {
             labels: None,
             labels_url,
             locked: None,
-            milestone: if let Some(x) = milestone {Some(Box::new(x))} else {None},
+            milestone: milestone.map(Box::new),
             node_id,
             number,
             performed_via_github_app: None,
@@ -114,7 +114,7 @@ impl Issue7 {
             title,
             updated_at,
             url,
-            user: if let Some(x) = user {Some(Box::new(x))} else {None},
+            user: user.map(Box::new),
         }
     }
 }

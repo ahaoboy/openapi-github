@@ -36,8 +36,8 @@ impl WebhooksSponsorship {
             maintainer: None,
             node_id,
             privacy_level,
-            sponsor: if let Some(x) = sponsor {Some(Box::new(x))} else {None},
-            sponsorable: if let Some(x) = sponsorable {Some(Box::new(x))} else {None},
+            sponsor: sponsor.map(Box::new),
+            sponsorable: sponsorable.map(Box::new),
             tier: Box::new(tier),
         }
     }

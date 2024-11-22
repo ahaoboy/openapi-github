@@ -57,13 +57,13 @@ impl Deployment1 {
     pub fn new(created_at: String, creator: Option<models::User>, description: Option<String>, environment: String, id: i32, node_id: String, original_environment: String, payload: Option<models::Deployment1Payload>, r#ref: String, repository_url: String, sha: String, statuses_url: String, task: String, updated_at: String, url: String) -> Deployment1 {
         Deployment1 {
             created_at,
-            creator: if let Some(x) = creator {Some(Box::new(x))} else {None},
+            creator: creator.map(Box::new),
             description,
             environment,
             id,
             node_id,
             original_environment,
-            payload: if let Some(x) = payload {Some(Box::new(x))} else {None},
+            payload: payload.map(Box::new),
             performed_via_github_app: None,
             production_environment: None,
             r#ref,

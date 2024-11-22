@@ -33,7 +33,7 @@ impl WebhookOrgBlockBlocked {
     pub fn new(action: Action, blocked_user: Option<models::WebhooksUser>, organization: models::OrganizationSimpleWebhooks, sender: models::SimpleUserWebhooks) -> WebhookOrgBlockBlocked {
         WebhookOrgBlockBlocked {
             action,
-            blocked_user: if let Some(x) = blocked_user {Some(Box::new(x))} else {None},
+            blocked_user: blocked_user.map(Box::new),
             enterprise: None,
             installation: None,
             organization: Box::new(organization),

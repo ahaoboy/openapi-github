@@ -88,7 +88,7 @@ pub struct DeploymentWorkflowRun {
 impl DeploymentWorkflowRun {
     pub fn new(actor: Option<models::User>, check_suite_id: i32, check_suite_node_id: String, conclusion: Option<Conclusion>, created_at: String, display_title: String, event: String, head_branch: String, head_sha: String, html_url: String, id: i32, name: String, node_id: String, path: String, pull_requests: Vec<models::CheckRunPullRequest>, run_attempt: i32, run_number: i32, run_started_at: String, status: Status, updated_at: String, url: String, workflow_id: i32) -> DeploymentWorkflowRun {
         DeploymentWorkflowRun {
-            actor: if let Some(x) = actor {Some(Box::new(x))} else {None},
+            actor: actor.map(Box::new),
             artifacts_url: None,
             cancel_url: None,
             check_suite_id,

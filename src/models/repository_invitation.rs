@@ -46,8 +46,8 @@ impl RepositoryInvitation {
         RepositoryInvitation {
             id,
             repository: Box::new(repository),
-            invitee: if let Some(x) = invitee {Some(Box::new(x))} else {None},
-            inviter: if let Some(x) = inviter {Some(Box::new(x))} else {None},
+            invitee: invitee.map(Box::new),
+            inviter: inviter.map(Box::new),
             permissions,
             created_at,
             expired: None,

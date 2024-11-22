@@ -24,7 +24,7 @@ impl FileCommit {
     /// File Commit
     pub fn new(content: Option<models::FileCommitContent>, commit: models::FileCommitCommit) -> FileCommit {
         FileCommit {
-            content: if let Some(x) = content {Some(Box::new(x))} else {None},
+            content: content.map(Box::new),
             commit: Box::new(commit),
         }
     }

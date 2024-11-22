@@ -56,7 +56,7 @@ impl App4 {
             id,
             name,
             node_id,
-            owner: if let Some(x) = owner {Some(Box::new(x))} else {None},
+            owner: owner.map(Box::new),
             permissions: None,
             slug: None,
             updated_at,

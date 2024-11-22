@@ -39,7 +39,7 @@ impl PageBuild {
             url,
             status,
             error: Box::new(error),
-            pusher: if let Some(x) = pusher {Some(Box::new(x))} else {None},
+            pusher: pusher.map(Box::new),
             commit,
             duration,
             created_at,

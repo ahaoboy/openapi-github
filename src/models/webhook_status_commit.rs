@@ -36,10 +36,10 @@ pub struct WebhookStatusCommit {
 impl WebhookStatusCommit {
     pub fn new(author: Option<models::User3>, comments_url: String, commit: models::WebhookStatusCommitCommit, committer: Option<models::User3>, html_url: String, node_id: String, parents: Vec<models::WebhookStatusCommitParentsInner>, sha: String, url: String) -> WebhookStatusCommit {
         WebhookStatusCommit {
-            author: if let Some(x) = author {Some(Box::new(x))} else {None},
+            author: author.map(Box::new),
             comments_url,
             commit: Box::new(commit),
-            committer: if let Some(x) = committer {Some(Box::new(x))} else {None},
+            committer: committer.map(Box::new),
             html_url,
             node_id,
             parents,

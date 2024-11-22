@@ -66,7 +66,7 @@ impl WebhooksRelease1 {
         WebhooksRelease1 {
             assets,
             assets_url,
-            author: if let Some(x) = author {Some(Box::new(x))} else {None},
+            author: author.map(Box::new),
             body,
             created_at,
             discussion_url: None,

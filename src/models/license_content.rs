@@ -58,7 +58,7 @@ impl LicenseContent {
             content,
             encoding,
             _links: Box::new(_links),
-            license: if let Some(x) = license {Some(Box::new(x))} else {None},
+            license: license.map(Box::new),
         }
     }
 }

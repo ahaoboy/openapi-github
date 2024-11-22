@@ -242,7 +242,7 @@ impl NullableRepository {
             node_id,
             name,
             full_name,
-            license: if let Some(x) = license {Some(Box::new(x))} else {None},
+            license: license.map(Box::new),
             forks,
             permissions: None,
             owner: Box::new(owner),

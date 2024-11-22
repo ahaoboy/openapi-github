@@ -38,7 +38,7 @@ impl WebhookMemberAdded {
             changes: None,
             enterprise: None,
             installation: None,
-            member: if let Some(x) = member {Some(Box::new(x))} else {None},
+            member: member.map(Box::new),
             organization: None,
             repository: Box::new(repository),
             sender: Box::new(sender),

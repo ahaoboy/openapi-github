@@ -38,7 +38,7 @@ impl WebhookPullRequestAssigned {
     pub fn new(action: Action, assignee: Option<models::WebhooksUser>, number: i32, pull_request: models::PullRequest, repository: models::RepositoryWebhooks, sender: models::SimpleUserWebhooks) -> WebhookPullRequestAssigned {
         WebhookPullRequestAssigned {
             action,
-            assignee: if let Some(x) = assignee {Some(Box::new(x))} else {None},
+            assignee: assignee.map(Box::new),
             enterprise: None,
             installation: None,
             number,

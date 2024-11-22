@@ -51,8 +51,8 @@ impl WebhookRegistryPackagePublishedRegistryPackage {
             namespace,
             owner: Box::new(owner),
             package_type,
-            package_version: if let Some(x) = package_version {Some(Box::new(x))} else {None},
-            registry: if let Some(x) = registry {Some(Box::new(x))} else {None},
+            package_version: package_version.map(Box::new),
+            registry: registry.map(Box::new),
             updated_at,
         }
     }

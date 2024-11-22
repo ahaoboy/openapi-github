@@ -69,7 +69,7 @@ impl Discussion {
         Discussion {
             active_lock_reason,
             answer_chosen_at,
-            answer_chosen_by: if let Some(x) = answer_chosen_by {Some(Box::new(x))} else {None},
+            answer_chosen_by: answer_chosen_by.map(Box::new),
             answer_html_url,
             author_association,
             body,
@@ -88,7 +88,7 @@ impl Discussion {
             timeline_url: None,
             title,
             updated_at,
-            user: if let Some(x) = user {Some(Box::new(x))} else {None},
+            user: user.map(Box::new),
         }
     }
 }

@@ -51,10 +51,10 @@ impl WebhookPackageUpdatedPackage {
             id,
             name,
             namespace,
-            owner: if let Some(x) = owner {Some(Box::new(x))} else {None},
+            owner: owner.map(Box::new),
             package_type,
             package_version: Box::new(package_version),
-            registry: if let Some(x) = registry {Some(Box::new(x))} else {None},
+            registry: registry.map(Box::new),
             updated_at,
         }
     }

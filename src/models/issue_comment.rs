@@ -55,11 +55,11 @@ impl IssueComment {
             id,
             issue_url,
             node_id,
-            performed_via_github_app: if let Some(x) = performed_via_github_app {Some(Box::new(x))} else {None},
+            performed_via_github_app: performed_via_github_app.map(Box::new),
             reactions: Box::new(reactions),
             updated_at,
             url,
-            user: if let Some(x) = user {Some(Box::new(x))} else {None},
+            user: user.map(Box::new),
         }
     }
 }

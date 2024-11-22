@@ -33,7 +33,7 @@ impl PullRequestAutoMerge {
         PullRequestAutoMerge {
             commit_message,
             commit_title,
-            enabled_by: if let Some(x) = enabled_by {Some(Box::new(x))} else {None},
+            enabled_by: enabled_by.map(Box::new),
             merge_method,
         }
     }

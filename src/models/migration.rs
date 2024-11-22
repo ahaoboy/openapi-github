@@ -59,7 +59,7 @@ impl Migration {
     pub fn new(id: i32, owner: Option<models::NullableSimpleUser>, guid: String, state: String, lock_repositories: bool, exclude_metadata: bool, exclude_git_data: bool, exclude_attachments: bool, exclude_releases: bool, exclude_owner_projects: bool, org_metadata_only: bool, repositories: Vec<models::Repository>, url: String, created_at: String, updated_at: String, node_id: String) -> Migration {
         Migration {
             id,
-            owner: if let Some(x) = owner {Some(Box::new(x))} else {None},
+            owner: owner.map(Box::new),
             guid,
             state,
             lock_repositories,

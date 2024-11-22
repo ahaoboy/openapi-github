@@ -88,7 +88,7 @@ pub struct WorkflowRun2 {
 impl WorkflowRun2 {
     pub fn new(actor: Option<models::User>, artifacts_url: String, cancel_url: String, check_suite_id: i32, check_suite_node_id: String, check_suite_url: String, conclusion: Option<Conclusion>, created_at: String, event: String, head_branch: Option<String>, head_commit: models::SimpleCommit, head_repository: models::RepositoryLite, head_sha: String, html_url: String, id: i32, jobs_url: String, logs_url: String, name: Option<String>, node_id: String, path: String, previous_attempt_url: Option<String>, pull_requests: Vec<models::WorkflowRun2PullRequestsInner>, repository: models::RepositoryLite, rerun_url: String, run_attempt: i32, run_number: i32, run_started_at: String, status: Status, triggering_actor: Option<models::User>, updated_at: String, url: String, workflow_id: i32, workflow_url: String, display_title: String) -> WorkflowRun2 {
         WorkflowRun2 {
-            actor: if let Some(x) = actor {Some(Box::new(x))} else {None},
+            actor: actor.map(Box::new),
             artifacts_url,
             cancel_url,
             check_suite_id,
@@ -117,7 +117,7 @@ impl WorkflowRun2 {
             run_number,
             run_started_at,
             status,
-            triggering_actor: if let Some(x) = triggering_actor {Some(Box::new(x))} else {None},
+            triggering_actor: triggering_actor.map(Box::new),
             updated_at,
             url,
             workflow_id,

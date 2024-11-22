@@ -107,7 +107,7 @@ impl PendingDeploymentReviewersInnerReviewer {
             permissions: None,
             members_url,
             repositories_url,
-            parent: if let Some(x) = parent {Some(Box::new(x))} else {None},
+            parent: parent.map(Box::new),
         }
     }
 }

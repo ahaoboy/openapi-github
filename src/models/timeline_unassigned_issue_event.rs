@@ -48,7 +48,7 @@ impl TimelineUnassignedIssueEvent {
             commit_id,
             commit_url,
             created_at,
-            performed_via_github_app: if let Some(x) = performed_via_github_app {Some(Box::new(x))} else {None},
+            performed_via_github_app: performed_via_github_app.map(Box::new),
             assignee: Box::new(assignee),
         }
     }

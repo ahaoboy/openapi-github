@@ -123,10 +123,10 @@ impl PullRequest13 {
             _links: Box::new(_links),
             active_lock_reason,
             additions: None,
-            assignee: if let Some(x) = assignee {Some(Box::new(x))} else {None},
+            assignee: assignee.map(Box::new),
             assignees,
             author_association,
-            auto_merge: if let Some(x) = auto_merge {Some(Box::new(x))} else {None},
+            auto_merge: auto_merge.map(Box::new),
             base: Box::new(base),
             body,
             changed_files: None,
@@ -152,7 +152,7 @@ impl PullRequest13 {
             merged: None,
             merged_at,
             merged_by: None,
-            milestone: if let Some(x) = milestone {Some(Box::new(x))} else {None},
+            milestone: milestone.map(Box::new),
             node_id,
             number,
             patch_url,
@@ -167,7 +167,7 @@ impl PullRequest13 {
             title,
             updated_at,
             url,
-            user: if let Some(x) = user {Some(Box::new(x))} else {None},
+            user: user.map(Box::new),
         }
     }
 }

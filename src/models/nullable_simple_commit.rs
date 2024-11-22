@@ -40,8 +40,8 @@ impl NullableSimpleCommit {
             tree_id,
             message,
             timestamp,
-            author: if let Some(x) = author {Some(Box::new(x))} else {None},
-            committer: if let Some(x) = committer {Some(Box::new(x))} else {None},
+            author: author.map(Box::new),
+            committer: committer.map(Box::new),
         }
     }
 }

@@ -72,8 +72,8 @@ impl CheckRun {
             completed_at,
             output: Box::new(output),
             name,
-            check_suite: if let Some(x) = check_suite {Some(Box::new(x))} else {None},
-            app: if let Some(x) = app {Some(Box::new(x))} else {None},
+            check_suite: check_suite.map(Box::new),
+            app: app.map(Box::new),
             pull_requests,
             deployment: None,
         }

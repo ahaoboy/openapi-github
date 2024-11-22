@@ -51,7 +51,7 @@ impl PullRequestReview {
         PullRequestReview {
             id,
             node_id,
-            user: if let Some(x) = user {Some(Box::new(x))} else {None},
+            user: user.map(Box::new),
             body,
             state,
             html_url,

@@ -32,7 +32,7 @@ impl PullRequest10Head {
             r#ref,
             repo: Box::new(repo),
             sha,
-            user: if let Some(x) = user {Some(Box::new(x))} else {None},
+            user: user.map(Box::new),
         }
     }
 }

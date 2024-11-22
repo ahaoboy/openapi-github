@@ -41,7 +41,7 @@ impl OrgMembership {
             role,
             organization_url,
             organization: Box::new(organization),
-            user: if let Some(x) = user {Some(Box::new(x))} else {None},
+            user: user.map(Box::new),
             permissions: None,
         }
     }

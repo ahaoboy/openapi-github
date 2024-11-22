@@ -56,7 +56,7 @@ impl WebhookDeploymentReviewApproved {
             since,
             workflow_job_run: None,
             workflow_job_runs: None,
-            workflow_run: if let Some(x) = workflow_run {Some(Box::new(x))} else {None},
+            workflow_run: workflow_run.map(Box::new),
         }
     }
 }

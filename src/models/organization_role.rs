@@ -44,7 +44,7 @@ impl OrganizationRole {
             name,
             description: None,
             permissions,
-            organization: if let Some(x) = organization {Some(Box::new(x))} else {None},
+            organization: organization.map(Box::new),
             created_at,
             updated_at,
         }

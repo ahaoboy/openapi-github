@@ -26,7 +26,7 @@ impl CustomPropertyValue {
     pub fn new(property_name: String, value: Option<models::CustomPropertyValueValue>) -> CustomPropertyValue {
         CustomPropertyValue {
             property_name,
-            value: if let Some(x) = value {Some(Box::new(x))} else {None},
+            value: value.map(Box::new),
         }
     }
 }

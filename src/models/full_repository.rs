@@ -326,7 +326,7 @@ impl FullRepository {
             web_commit_signoff_required: None,
             subscribers_count,
             network_count,
-            license: if let Some(x) = license {Some(Box::new(x))} else {None},
+            license: license.map(Box::new),
             organization: None,
             parent: None,
             source: None,

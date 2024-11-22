@@ -40,7 +40,7 @@ pub struct WebhookPackagePublishedPackagePackageVersionRelease {
 impl WebhookPackagePublishedPackagePackageVersionRelease {
     pub fn new(author: Option<models::User>, created_at: String, draft: bool, html_url: String, id: i32, name: Option<String>, prerelease: bool, published_at: String, tag_name: String, target_commitish: String, url: String) -> WebhookPackagePublishedPackagePackageVersionRelease {
         WebhookPackagePublishedPackagePackageVersionRelease {
-            author: if let Some(x) = author {Some(Box::new(x))} else {None},
+            author: author.map(Box::new),
             created_at,
             draft,
             html_url,

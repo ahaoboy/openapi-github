@@ -58,7 +58,7 @@ impl Milestone {
             closed_at,
             closed_issues,
             created_at,
-            creator: if let Some(x) = creator {Some(Box::new(x))} else {None},
+            creator: creator.map(Box::new),
             description,
             due_on,
             html_url,

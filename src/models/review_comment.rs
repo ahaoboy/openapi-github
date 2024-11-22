@@ -93,7 +93,7 @@ impl ReviewComment {
             commit_id,
             original_commit_id,
             in_reply_to_id: None,
-            user: if let Some(x) = user {Some(Box::new(x))} else {None},
+            user: user.map(Box::new),
             body,
             created_at,
             updated_at,

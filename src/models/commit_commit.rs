@@ -33,8 +33,8 @@ impl CommitCommit {
     pub fn new(url: String, author: Option<models::NullableGitUser>, committer: Option<models::NullableGitUser>, message: String, comment_count: i32, tree: models::CommitCommitTree) -> CommitCommit {
         CommitCommit {
             url,
-            author: if let Some(x) = author {Some(Box::new(x))} else {None},
-            committer: if let Some(x) = committer {Some(Box::new(x))} else {None},
+            author: author.map(Box::new),
+            committer: committer.map(Box::new),
             message,
             comment_count,
             tree: Box::new(tree),

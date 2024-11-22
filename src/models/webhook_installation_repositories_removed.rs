@@ -48,7 +48,7 @@ impl WebhookInstallationRepositoriesRemoved {
             repositories_removed,
             repository: None,
             repository_selection,
-            requester: if let Some(x) = requester {Some(Box::new(x))} else {None},
+            requester: requester.map(Box::new),
             sender: Box::new(sender),
         }
     }

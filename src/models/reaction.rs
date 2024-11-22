@@ -33,7 +33,7 @@ impl Reaction {
         Reaction {
             id,
             node_id,
-            user: if let Some(x) = user {Some(Box::new(x))} else {None},
+            user: user.map(Box::new),
             content,
             created_at,
         }

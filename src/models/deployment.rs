@@ -57,7 +57,7 @@ impl Deployment {
     pub fn new(created_at: String, creator: Option<models::User>, description: Option<String>, environment: String, id: i32, node_id: String, original_environment: String, payload: models::DeploymentPayload, r#ref: String, repository_url: String, sha: String, statuses_url: String, task: String, updated_at: String, url: String) -> Deployment {
         Deployment {
             created_at,
-            creator: if let Some(x) = creator {Some(Box::new(x))} else {None},
+            creator: creator.map(Box::new),
             description,
             environment,
             id,

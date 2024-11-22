@@ -33,7 +33,7 @@ impl CommitSearchResultItemCommit {
     pub fn new(author: models::CommitSearchResultItemCommitAuthor, committer: Option<models::NullableGitUser>, comment_count: i32, message: String, tree: models::ShortBranchCommit, url: String) -> CommitSearchResultItemCommit {
         CommitSearchResultItemCommit {
             author: Box::new(author),
-            committer: if let Some(x) = committer {Some(Box::new(x))} else {None},
+            committer: committer.map(Box::new),
             comment_count,
             message,
             tree: Box::new(tree),

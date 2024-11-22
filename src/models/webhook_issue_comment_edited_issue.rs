@@ -82,7 +82,7 @@ impl WebhookIssueCommentEditedIssue {
     pub fn new(active_lock_reason: Option<String>, assignee: Option<models::User1>, assignees: Vec<serde_json::Value>, author_association: String, body: Option<String>, closed_at: Option<String>, comments: i32, comments_url: String, created_at: String, events_url: String, html_url: String, id: i32, labels: Vec<models::Label>, labels_url: String, locked: bool, milestone: Option<serde_json::Value>, node_id: String, number: i32, reactions: models::WebhookIssueCommentCreatedIssueAllOfReactions, repository_url: String, state: State, title: String, updated_at: String, url: String, user: models::WebhooksSponsorshipMaintainer) -> WebhookIssueCommentEditedIssue {
         WebhookIssueCommentEditedIssue {
             active_lock_reason,
-            assignee: if let Some(x) = assignee {Some(Box::new(x))} else {None},
+            assignee: assignee.map(Box::new),
             assignees,
             author_association,
             body,

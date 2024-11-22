@@ -50,7 +50,7 @@ impl WebhookProjectCardMovedProjectCard {
             column_url,
             content_url: None,
             created_at,
-            creator: if let Some(x) = creator {Some(Box::new(x))} else {None},
+            creator: creator.map(Box::new),
             id,
             node_id,
             note,

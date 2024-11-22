@@ -49,7 +49,7 @@ impl TeamDiscussionComment {
     /// A reply to a discussion within a team.
     pub fn new(author: Option<models::NullableSimpleUser>, body: String, body_html: String, body_version: String, created_at: String, last_edited_at: Option<String>, discussion_url: String, html_url: String, node_id: String, number: i32, updated_at: String, url: String) -> TeamDiscussionComment {
         TeamDiscussionComment {
-            author: if let Some(x) = author {Some(Box::new(x))} else {None},
+            author: author.map(Box::new),
             body,
             body_html,
             body_version,

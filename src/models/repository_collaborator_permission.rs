@@ -28,7 +28,7 @@ impl RepositoryCollaboratorPermission {
         RepositoryCollaboratorPermission {
             permission,
             role_name,
-            user: if let Some(x) = user {Some(Box::new(x))} else {None},
+            user: user.map(Box::new),
         }
     }
 }

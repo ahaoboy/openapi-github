@@ -58,7 +58,7 @@ impl CheckRunWithSimpleCheckSuite {
     /// A check performed on the code of a given code change
     pub fn new(app: Option<models::NullableIntegration>, check_suite: models::SimpleCheckSuite, completed_at: Option<String>, conclusion: Option<Conclusion>, details_url: String, external_id: String, head_sha: String, html_url: String, id: i32, name: String, node_id: String, output: models::CheckRunWithSimpleCheckSuiteOutput, pull_requests: Vec<models::PullRequestMinimal>, started_at: String, status: Status, url: String) -> CheckRunWithSimpleCheckSuite {
         CheckRunWithSimpleCheckSuite {
-            app: if let Some(x) = app {Some(Box::new(x))} else {None},
+            app: app.map(Box::new),
             check_suite: Box::new(check_suite),
             completed_at,
             conclusion,

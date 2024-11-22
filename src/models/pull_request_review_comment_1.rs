@@ -122,7 +122,7 @@ impl PullRequestReviewComment1 {
             subject_type: None,
             updated_at,
             url,
-            user: if let Some(x) = user {Some(Box::new(x))} else {None},
+            user: user.map(Box::new),
         }
     }
 }

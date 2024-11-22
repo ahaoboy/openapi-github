@@ -56,7 +56,7 @@ impl WebhookPullRequestReviewDismissedReview {
             pull_request_url,
             state,
             submitted_at,
-            user: if let Some(x) = user {Some(Box::new(x))} else {None},
+            user: user.map(Box::new),
         }
     }
 }

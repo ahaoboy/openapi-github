@@ -40,7 +40,7 @@ impl WebhookPageBuildBuild {
             created_at,
             duration,
             error: Box::new(error),
-            pusher: if let Some(x) = pusher {Some(Box::new(x))} else {None},
+            pusher: pusher.map(Box::new),
             status,
             updated_at,
             url,

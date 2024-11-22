@@ -67,7 +67,7 @@ impl IssueEvent {
             id,
             node_id,
             url,
-            actor: if let Some(x) = actor {Some(Box::new(x))} else {None},
+            actor: actor.map(Box::new),
             event,
             commit_id,
             commit_url,

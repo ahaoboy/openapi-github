@@ -65,7 +65,7 @@ impl Project {
             body,
             number,
             state,
-            creator: if let Some(x) = creator {Some(Box::new(x))} else {None},
+            creator: creator.map(Box::new),
             created_at,
             updated_at,
             organization_permission: None,

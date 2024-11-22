@@ -54,7 +54,7 @@ impl WebhookDeploymentStatusCreatedDeploymentStatus {
     pub fn new(created_at: String, creator: Option<models::User>, deployment_url: String, description: String, environment: String, id: i32, node_id: String, repository_url: String, state: String, target_url: String, updated_at: String, url: String) -> WebhookDeploymentStatusCreatedDeploymentStatus {
         WebhookDeploymentStatusCreatedDeploymentStatus {
             created_at,
-            creator: if let Some(x) = creator {Some(Box::new(x))} else {None},
+            creator: creator.map(Box::new),
             deployment_url,
             description,
             environment,

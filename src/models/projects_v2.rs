@@ -61,7 +61,7 @@ impl ProjectsV2 {
             number,
             short_description,
             deleted_at,
-            deleted_by: if let Some(x) = deleted_by {Some(Box::new(x))} else {None},
+            deleted_by: deleted_by.map(Box::new),
         }
     }
 }

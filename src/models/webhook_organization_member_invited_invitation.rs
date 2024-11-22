@@ -50,7 +50,7 @@ impl WebhookOrganizationMemberInvitedInvitation {
             failed_reason,
             id,
             invitation_teams_url,
-            inviter: if let Some(x) = inviter {Some(Box::new(x))} else {None},
+            inviter: inviter.map(Box::new),
             login,
             node_id,
             role,

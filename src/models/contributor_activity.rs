@@ -26,7 +26,7 @@ impl ContributorActivity {
     /// Contributor Activity
     pub fn new(author: Option<models::NullableSimpleUser>, total: i32, weeks: Vec<models::ContributorActivityWeeksInner>) -> ContributorActivity {
         ContributorActivity {
-            author: if let Some(x) = author {Some(Box::new(x))} else {None},
+            author: author.map(Box::new),
             total,
             weeks,
         }

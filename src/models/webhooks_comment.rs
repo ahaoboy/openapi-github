@@ -57,7 +57,7 @@ impl WebhooksComment {
             reactions: Box::new(reactions),
             repository_url,
             updated_at,
-            user: if let Some(x) = user {Some(Box::new(x))} else {None},
+            user: user.map(Box::new),
         }
     }
 }

@@ -30,9 +30,9 @@ impl PullRequest12Head {
         PullRequest12Head {
             label,
             r#ref,
-            repo: if let Some(x) = repo {Some(Box::new(x))} else {None},
+            repo: repo.map(Box::new),
             sha,
-            user: if let Some(x) = user {Some(Box::new(x))} else {None},
+            user: user.map(Box::new),
         }
     }
 }

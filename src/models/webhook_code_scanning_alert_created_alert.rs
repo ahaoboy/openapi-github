@@ -69,7 +69,7 @@ impl WebhookCodeScanningAlertCreatedAlert {
             number,
             rule: Box::new(rule),
             state,
-            tool: if let Some(x) = tool {Some(Box::new(x))} else {None},
+            tool: tool.map(Box::new),
             updated_at: None,
             url,
         }

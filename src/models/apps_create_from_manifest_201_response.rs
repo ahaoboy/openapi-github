@@ -60,7 +60,7 @@ impl AppsCreateFromManifest201Response {
             id,
             slug: None,
             node_id,
-            owner: if let Some(x) = owner {Some(Box::new(x))} else {None},
+            owner: owner.map(Box::new),
             name,
             description,
             external_url,

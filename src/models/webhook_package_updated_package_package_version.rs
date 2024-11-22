@@ -68,7 +68,7 @@ pub struct WebhookPackageUpdatedPackagePackageVersion {
 impl WebhookPackageUpdatedPackagePackageVersion {
     pub fn new(author: Option<models::User>, body: String, body_html: String, created_at: String, description: String, html_url: String, id: i32, installation_command: String, metadata: Vec<std::collections::HashMap<String, serde_json::Value>>, name: String, package_files: Vec<models::WebhookPackageUpdatedPackagePackageVersionPackageFilesInner>, summary: String, target_commitish: String, target_oid: String, updated_at: String, version: String) -> WebhookPackageUpdatedPackagePackageVersion {
         WebhookPackageUpdatedPackagePackageVersion {
-            author: if let Some(x) = author {Some(Box::new(x))} else {None},
+            author: author.map(Box::new),
             body,
             body_html,
             created_at,

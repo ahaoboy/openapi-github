@@ -48,10 +48,10 @@ pub struct ReposUpdateBranchProtectionRequest {
 impl ReposUpdateBranchProtectionRequest {
     pub fn new(required_status_checks: Option<models::ReposUpdateBranchProtectionRequestRequiredStatusChecks>, enforce_admins: Option<bool>, required_pull_request_reviews: Option<models::ReposUpdateBranchProtectionRequestRequiredPullRequestReviews>, restrictions: Option<models::ReposUpdateBranchProtectionRequestRestrictions>) -> ReposUpdateBranchProtectionRequest {
         ReposUpdateBranchProtectionRequest {
-            required_status_checks: if let Some(x) = required_status_checks {Some(Box::new(x))} else {None},
+            required_status_checks: required_status_checks.map(Box::new),
             enforce_admins,
-            required_pull_request_reviews: if let Some(x) = required_pull_request_reviews {Some(Box::new(x))} else {None},
-            restrictions: if let Some(x) = restrictions {Some(Box::new(x))} else {None},
+            required_pull_request_reviews: required_pull_request_reviews.map(Box::new),
+            restrictions: restrictions.map(Box::new),
             required_linear_history: None,
             allow_force_pushes: None,
             allow_deletions: None,

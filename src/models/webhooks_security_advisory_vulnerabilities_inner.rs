@@ -26,7 +26,7 @@ pub struct WebhooksSecurityAdvisoryVulnerabilitiesInner {
 impl WebhooksSecurityAdvisoryVulnerabilitiesInner {
     pub fn new(first_patched_version: Option<models::WebhooksSecurityAdvisoryVulnerabilitiesInnerFirstPatchedVersion>, package: models::WebhooksSecurityAdvisoryVulnerabilitiesInnerPackage, severity: String, vulnerable_version_range: String) -> WebhooksSecurityAdvisoryVulnerabilitiesInner {
         WebhooksSecurityAdvisoryVulnerabilitiesInner {
-            first_patched_version: if let Some(x) = first_patched_version {Some(Box::new(x))} else {None},
+            first_patched_version: first_patched_version.map(Box::new),
             package: Box::new(package),
             severity,
             vulnerable_version_range,
